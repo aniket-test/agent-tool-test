@@ -1,4 +1,4 @@
-name: Run pre-commit hooks
+name: Run Build
 
 on:
   pull_request:
@@ -32,3 +32,17 @@ jobs:
 
     - name: Run pre-commit hooks
       run: poetry run pre-commit run --all-files
+  
+  release-drafter:
+    runs-on: ubuntu-latest
+    name: Generate release notes
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Release Drafter
+        uses: release-drafter/release-drafter@v5
+        with:
+          config-name: ".github/release-drafter.yml"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
