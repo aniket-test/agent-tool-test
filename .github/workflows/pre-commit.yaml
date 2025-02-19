@@ -3,7 +3,9 @@ name: Run pre-commit hooks
 on:
   pull_request:
     types: [ opened, synchronize ]
-    branches: [ main ]  # update later to remove development
+    branches: [ main, development ]  # update later to remove development
+  push:
+      branches: [ "main" ]
 
 jobs:
   pre-commit:
