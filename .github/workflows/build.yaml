@@ -25,7 +25,7 @@ jobs:
         python-version: '3.12'
         cache: 'poetry'
     - name: Install dependencies
-      run: poetry install --with dev
+      run: poetry install
 
     - name: Set up hooks
       run: poetry run pre-commit install
@@ -34,6 +34,7 @@ jobs:
       run: poetry run pre-commit run --all-files
   
   release-drafter:
+    needs: pre-commit
     runs-on: ubuntu-latest
     name: Generate release notes
     steps:
