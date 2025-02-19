@@ -6,7 +6,7 @@ authors = ["Dawson Booth <github@dawsonbooth.com>"]
 homepage = "https://github.com/dawsonbooth/REPO_NAME"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
+python = ">=3.8,<3.13"
 
 [tool.poetry.dev-dependencies]
 autoflake = "^1.4"
