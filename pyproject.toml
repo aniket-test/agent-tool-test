@@ -1,79 +1,34 @@
-[project]
-name = "agent-service-toolkit"
-version = "0.1.0"
-description = "Full toolkit for running an AI agent service built with LangGraph, FastAPI and Streamlit"
-readme = "README.md"
-authors = [{ name = "Joshua Carroll", email = "carroll.joshk@gmail.com" }]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "License :: OSI Approved :: MIT License",
-    "Framework :: FastAPI",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-]
+[tool.poetry]
+name = "PROJECT_NAME"
+version = "0.3.5"
+description = ""
+authors = ["Dawson Booth <github@dawsonbooth.com>"]
+homepage = "https://github.com/dawsonbooth/REPO_NAME"
 
-requires-python = ">=3.11, <3.13"
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
 
-dependencies = [
-    "duckduckgo-search>=7.3.0",
-    "fastapi ~=0.115.5",
-    "httpx ~=0.27.2",
-    "langchain-core ~=0.3.33",
-    "langchain-community ~=0.3.16",
-    "langchain-openai ~=0.2.9",
-    "langchain-anthropic ~= 0.3.0",
-    "langchain-google-genai ~=2.0.5",
-    "langchain-groq ~=0.2.1",
-    "langchain-aws ~=0.2.7",
-    "langchain-ollama ~=0.2.3",
-    "langgraph ~=0.2.68",
-    "langgraph-checkpoint-sqlite ~=2.0.1",
-    "langgraph-checkpoint-postgres ~=2.0.13",
-    "langsmith ~=0.1.145",
-    "numexpr ~=2.10.1",
-    "psycopg[binary,pool] ~=3.2.4",
-    "pyarrow >=18.1.0", # python 3.13 support
-    "pydantic ~=2.10.1",
-    "pydantic-settings ~=2.6.1",
-    "pyowm ~=3.3.0",
-    "python-dotenv ~=1.0.1",
-    "setuptools ~=75.6.0",
-    "streamlit ~=1.40.1",
-    "tiktoken >=0.8.0", # python 3.13 support
-    "uvicorn ~=0.32.1",
-]
+[tool.poetry.dev-dependencies]
+autoflake = "^1.4"
+black = "^21.12b0"
+dustpan = "^0.3.2"
+flake8 = "^4.0.1"
+invoke = "^1.6.0"
+isort = "^5.10.1"
+mypy = "^0.930"
+pyinstaller = "^4.7"
+rope = "^0.22.0"
 
-[dependency-groups]
-dev = [
-    "pre-commit",
-    "pytest",
-    "pytest-cov",
-    "pytest-env",
-    "pytest-asyncio",
-    "ruff",
-]
+[tool.black]
+line-length = 119
 
-# Group for the minimal dependencies to run just the client and Streamlit app.
-# These are also installed in the default dependencies.
-# To install run: `uv sync --frozen --only-group client`
-client = [
-    "httpx~=0.27.2",
-    "pydantic ~=2.10.1",
-    "python-dotenv ~=1.0.1",
-    "streamlit~=1.40.1",
-]
+[tool.dustpan]
+remove-empty-directories = true
 
-[tool.ruff]
-line-length = 100
-target-version = "py311"
+[tool.isort]
+line_length = 119
+profile = "black"
 
-[tool.ruff.lint]
-extend-select = ["I", "U"]
-
-[tool.pytest.ini_options]
-pythonpath = ["src"]
-asyncio_default_fixture_loop_scope = "function"
-
-[tool.pytest_env]
-OPENAI_API_KEY = "sk-fake-openai-key"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

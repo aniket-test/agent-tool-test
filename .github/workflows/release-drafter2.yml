@@ -1,0 +1,67 @@
+# .github/release-drafter.yml
+
+name: "Automatic Release Drafter"
+
+# Define versioning strategy (auto increments the version based on commit history)
+versioning-strategy: "auto"
+
+# Template for release notes formatting
+template: |
+  ## Changes in this release
+
+  ### ⚠️ Deprecations
+  ${{changelog.template("deprecation")}}
+
+  ### 🚀 Performance improvements
+  ${{changelog.template("performance")}}
+
+  ### ✨ Enhancements
+  ${{changelog.template("enhancement")}}
+
+  ### 🐞 Bug fixes
+  ${{changelog.template("fix")}}
+
+  ### 📖 Documentation
+  ${{changelog.template("documentation")}}
+
+  ### 📦 Build system
+  ${{changelog.template("build")}}
+
+  ### 🛠️ Other improvements
+  ${{changelog.template("internal")}}
+
+categories:
+  - name: "⚠️ Deprecations"
+    label: "deprecation"
+    template: "- ${{title}} (#${{number}})"
+  
+  - name: "🚀 Performance improvements"
+    label: "performance"
+    template: "- ${{title}} (#${{number}})"
+  
+  - name: "✨ Enhancements"
+    label: "enhancement"
+    template: "- ${{title}} (#${{number}})"
+  
+  - name: "🐞 Bug fixes"
+    label: "fix"
+    template: "- ${{title}} (#${{number}})"
+  
+  - name: "📖 Documentation"
+    label: "documentation"
+    template: "- ${{title}} (#${{number}})"
+  
+  - name: "📦 Build system"
+    label: "build"
+    template: "- ${{title}} (#${{number}})"
+  
+  - name: "🛠️ Other improvements"
+    label: "internal"
+    template: "- ${{title}} (#${{number}})"
+
+# Optional: Draft the release if the PR is merged into the main branch
+release-draft:
+  status: draft
+
+# Optional: Define changelog sorting order
+changelog-sort-by: "merged"
