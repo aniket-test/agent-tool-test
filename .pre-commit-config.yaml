@@ -45,23 +45,3 @@ repos:
       - id: pyupgrade
         name: "🆕 Check for code that can use new Python features"
         args: [--py311-plus]
-  - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.5
-    hooks:
-      - id: bandit
-        name: "🔒 Check for security issues with Bandit"
-        args: ["-c", "pyproject.toml"]
-        additional_dependencies: ["bandit[toml]"]
-  # should be replaced once ruff supports it: https://github.com/astral-sh/ruff/issues/458
-  - repo: https://github.com/jsh9/pydoclint
-    rev: 0.3.4
-    hooks:
-      - id: pydoclint
-        name: "📝 Check docstrings with pydoclint"
-        args:
-          [
-            --style=google,
-            --arg-type-hints-in-docstring=False,
-            --check-return-types=False,
-            --check-yield-types=False,
-          ]
