@@ -1,6 +1,6 @@
-# VSCode
-.vscode/
-
+#################################################################
+# Python.gitignore
+#################################################################
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -29,7 +29,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-# poetry.lock
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -64,7 +63,6 @@ local_settings.py
 db.sqlite3
 
 # Flask stuff:
-instance/
 .webassets-cache
 
 # Scrapy stuff:
