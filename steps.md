@@ -107,7 +107,7 @@ jobs:
 
       - name: Install dependencies with Poetry
         run: |
-          poetry install --no-interaction --no-dev  # Install production dependencies
+          poetry install --no-interaction  # Install production dependencies
 
       - name: Install Pre-commit hooks
         run: |
